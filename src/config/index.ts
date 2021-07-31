@@ -49,7 +49,7 @@ const envVarsSchema = Joi.object<EnvironmentInterface>({
     .required(),
 
   DATA_BASE_NAME: Joi.string()
-    .default('postgres')
+    .default('mobilewallet')
     .description('Database name')
     .required(),
 

@@ -1,5 +1,5 @@
 {
-  "name": "tensfer_backend",
+  "name": "mobile-wallet",
   "version": "1.0.0",
   "description": "> Express REST API with JWT Authentication and support for sqlite, mysql, and postgresql using knex as database ORM and objection as knex Model Mapper",
   "main": "src/index",

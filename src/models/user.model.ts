@@ -96,7 +96,6 @@ export default class User extends mixin(Model, [convertModelIdToGuid, unique]) {
     // this, not both. `relationMappings` can also be a method or
     // a thunk if you prefer those instead of getters.
     const Wallet = require('@models/wallet.model');
-    const Request = require('@models/request.model');
     const Payment = require('@models/payment.model');
 
     return {
@@ -118,14 +117,6 @@ export default class User extends mixin(Model, [convertModelIdToGuid, unique]) {
         }
       },
 
-      [TableNames.REQUESTS]: {
-        relation: Model.HasManyRelation,
-        modelClass: Request,
-        join: {
-          from: `${TableNames.USERS}.id`,
-          to: `${TableNames.REQUESTS}.user_id`
-        }
-      }
     };
   }
 

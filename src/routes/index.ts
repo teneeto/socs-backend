@@ -7,7 +7,6 @@
 import authRoute from '@routes/auth.routes';
 import userRoute from '@routes/user.routes';
 import authToken from '@policies/auth.policy';
-import requestsRouter from '@routes/request.routes';
 import { Request, Response, Router } from 'express';
 
 const router = Router();
@@ -25,8 +24,5 @@ router.use(authToken);
 
 // mount users routes
 router.use('/users', userRoute);
-
-//mount request routes
-router.use('/requests', requestsRouter);
 
 export default router;
