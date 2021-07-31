@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "last_name": "Doe",
+      "is_delete": false,
+      "is_verified": false,
+      "first_name": "John",
+      "password": "password",
+      "phone": "+2348132978121",
+      "email": "JohnD@exmaple.com",
+      "id": "6bd21be1-0ab9-4614-9f16-c838631f4a1c",
+      "address": { "city": "lekki", "state": "lagos" },
+      "image": "https://drive.google.com/uc?view=&id=14SY6cRWX2ojTeynq1d_E9O1aIA-2l5Jp"
+    },
+    {
+      "last_name": "Doe",
+      "is_delete": false,
+      "is_verified": false,
+      "first_name": "Jane",
+      "password": "password",
+      "phone": "+2348132978122",
+      "email": "DoeJ@exmaple.com",
+      "id": "f2393447-eb6d-4f75-b48d-ff8dce68bb0e",
+      "address": { "city": "lekki", "state": "lagos" },
+      "image": "https://drive.google.com/uc?view=&id=14SY6cRWX2ojTeynq1d_E9O1aIA-2l5Jp"
+    },
+    {
+      "is_delete": false,
+      "password": "David",
+      "is_verified": false,
+      "first_name": "John",
+      "last_name": "James",
+      "phone": "+2348132978120",
+      "email": "JamesD@exmaple.com",
+      "id": "52eb55e3-f559-481e-b9e7-d66ad2e75131",
+      "address": { "city": "lekki", "state": "lagos" },
+      "image": "https://drive.google.com/uc?view=&id=14SY6cRWX2ojTeynq1d_E9O1aIA-2l5Jp"
+    }
+  ]
+}
