@@ -1,11 +1,11 @@
-import { Joi, Segments } from 'celebrate';
+import { Joi, Segments } from "celebrate";
 import {
   Role,
   UserStatus,
   Availability,
   UserInterface,
-  AddressInterface
-} from '@typings/user';
+  AddressInterface,
+} from "@typings/user";
 
 /**
  * Function representing the Validation check for app auth post requests
@@ -30,55 +30,10 @@ export default {
   signupUser: {
     [Segments.BODY]: Joi.object<UserInterface>().keys({
       role: Joi.string()
-        .valid(Role.CUSTOMER, Role.AGENT, Role.ADMIN, Role.SUPER_ADMIN)
+        .valid(Role.CUSTOMER, Role.ADMIN)
         .default(Role.CUSTOMER)
         .lowercase(),
-      address: Joi.object<AddressInterface>({
-        city: Joi.string()
-          .lowercase()
-          .label('city')
-          .messages({
-            'string.empty': `{#label} can not be empty`,
-            'any.required': `{#label} is required`
-          })
-          .required(),
-        state: Joi.string()
-          .lowercase()
-          .label('state')
-          .messages({
-            'string.empty': `{#label} can not be empty`,
-            'any.required': `{#label} is required`
-          })
-          .required(),
-        country: Joi.string()
-          .lowercase()
-          .label('country')
-          .messages({
-            'string.empty': `{#label} can not be empty`,
-            'any.required': `{#label} is required`
-          })
-          .required(),
-        address: Joi.string()
-          .lowercase()
-          .label('address')
-          .messages({
-            'string.empty': `{#label} can not be empty`,
-            'any.required': `{#label} is required`
-          })
-          .required(),
-        postal_code: Joi.string().lowercase()
-      }),
-      status: Joi.string()
-        .valid(UserStatus.ONLINE, UserStatus.OFFLINE)
-        .default(UserStatus.ONLINE)
-        .lowercase(),
-      availability: Joi.when('role', {
-        is: Role.AGENT,
-        then: Joi.string()
-          .valid(Availability.DELIVERY, Availability.PICK_UP)
-          .default(Availability.DELIVERY)
-          .lowercase()
-      }),
+
       is_delete: Joi.boolean().default(false),
       is_verified: Joi.boolean().default(false),
       phone: Joi.string().lowercase().required(),
@@ -89,9 +44,9 @@ export default {
       image: Joi.string()
         .lowercase()
         .default(
-          'https://drive.google.com/uc?view=&id=14SY6cRWX2ojTeynq1d_E9O1aIA-2l5Jp'
-        )
-    })
+          "https://drive.google.com/uc?view=&id=14SY6cRWX2ojTeynq1d_E9O1aIA-2l5Jp"
+        ),
+    }),
   },
 
   /**
@@ -104,8 +59,8 @@ export default {
   signinUser: {
     [Segments.BODY]: Joi.object().keys({
       phone: Joi.string().lowercase().required(),
-      password: Joi.string().min(6).max(20).required()
-    })
+      password: Joi.string().min(6).max(20).required(),
+    }),
   },
 
   /**
@@ -122,34 +77,34 @@ export default {
         .default(Role.CUSTOMER)
         .lowercase(),
       address: Joi.object<AddressInterface>({
-        city: Joi.string().lowercase().label('city').messages({
-          'string.empty': `{#label} can not be empty`,
-          'any.required': `{#label} is required`
+        city: Joi.string().lowercase().label("city").messages({
+          "string.empty": `{#label} can not be empty`,
+          "any.required": `{#label} is required`,
         }),
-        state: Joi.string().lowercase().label('state').messages({
-          'string.empty': `{#label} can not be empty`,
-          'any.required': `{#label} is required`
+        state: Joi.string().lowercase().label("state").messages({
+          "string.empty": `{#label} can not be empty`,
+          "any.required": `{#label} is required`,
         }),
-        country: Joi.string().lowercase().label('country').messages({
-          'string.empty': `{#label} can not be empty`,
-          'any.required': `{#label} is required`
+        country: Joi.string().lowercase().label("country").messages({
+          "string.empty": `{#label} can not be empty`,
+          "any.required": `{#label} is required`,
         }),
-        address: Joi.string().lowercase().label('address').messages({
-          'string.empty': `{#label} can not be empty`,
-          'any.required': `{#label} is required`
+        address: Joi.string().lowercase().label("address").messages({
+          "string.empty": `{#label} can not be empty`,
+          "any.required": `{#label} is required`,
         }),
-        postal_code: Joi.string().lowercase()
+        postal_code: Joi.string().lowercase(),
       }),
       status: Joi.string()
         .valid(UserStatus.ONLINE, UserStatus.OFFLINE)
         .default(UserStatus.ONLINE)
         .lowercase(),
-      availability: Joi.when('role', {
+      availability: Joi.when("role", {
         is: Role.AGENT,
         then: Joi.string()
           .valid(Availability.DELIVERY, Availability.PICK_UP)
           .default(Availability.DELIVERY)
-          .lowercase()
+          .lowercase(),
       }),
       is_delete: Joi.boolean(),
       is_verified: Joi.boolean(),
@@ -158,23 +113,23 @@ export default {
       password: Joi.string().min(6).max(20),
       email: Joi.string().email().lowercase(),
       last_name: Joi.string().min(5).max(255).lowercase(),
-      first_name: Joi.string().min(5).max(255).lowercase()
+      first_name: Joi.string().min(5).max(255).lowercase(),
     })
-      .label('field')
+      .label("field")
       .or(
-        'role',
-        'email',
-        'phone',
-        'image',
-        'status',
-        'address',
-        'password',
-        'is_delete',
-        'last_name',
-        'first_name',
-        'is_verified',
-        'availability'
-      )
+        "role",
+        "email",
+        "phone",
+        "image",
+        "status",
+        "address",
+        "password",
+        "is_delete",
+        "last_name",
+        "first_name",
+        "is_verified",
+        "availability"
+      ),
   },
 
   /**
@@ -186,7 +141,7 @@ export default {
    */
   deleteUser: {
     [Segments.PARAMS]: Joi.object().keys({
-      id: Joi.string().guid({ version: 'uuidv4' }).required()
-    })
-  }
+      id: Joi.string().guid({ version: "uuidv4" }).required(),
+    }),
+  },
 };
