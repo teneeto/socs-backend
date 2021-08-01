@@ -39,7 +39,7 @@ const envVarsSchema = Joi.object<EnvironmentInterface>({
     .required(),
 
   DATA_BASE_PASSWORD: Joi.string()
-    .default('password')
+    .default('internet24')
     .description('Database password')
     .required(),
 
@@ -49,7 +49,7 @@ const envVarsSchema = Joi.object<EnvironmentInterface>({
     .required(),
 
   DATA_BASE_NAME: Joi.string()
-    .default('mobilewallet')
+    .default('socs')
     .description('Database name')
     .required(),
 

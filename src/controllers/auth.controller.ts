@@ -1,11 +1,11 @@
-import httpStatus from 'http-status';
-import User from '@models/user.model';
-import sendResponse from '@helpers/response';
-import { UserInterface } from '@typings/user';
-import authService from '@services/auth.service';
-import { ResponseInterface } from '@typings/helpers';
-import bcryptService from '@services/bcrypt.service';
-import { Request, Response, NextFunction } from 'express';
+import httpStatus from "http-status";
+import User from "@models/user.model";
+import sendResponse from "@helpers/response";
+import { UserInterface } from "@typings/user";
+import authService from "@services/auth.service";
+import { ResponseInterface } from "@typings/helpers";
+import bcryptService from "@services/bcrypt.service";
+import { Request, Response, NextFunction } from "express";
 
 /**
  *
@@ -39,19 +39,19 @@ export default class AuthController {
         return res.status(httpStatus.BAD_REQUEST).json(
           sendResponse({
             statusCode: httpStatus.BAD_REQUEST,
-            message: 'account already registered with us',
-            errors: { phone: 'account already registered with us' }
+            message: "account already registered with us",
+            errors: { phone: "account already registered with us" },
           })
         );
       }
-
+      // const trx = await knex.transaction();
       const user = await User.query().insert({ ...req.body });
 
       return res.status(httpStatus.CREATED).json(
         sendResponse({
           payload: user,
-          message: 'success',
-          statusCode: httpStatus.CREATED
+          message: "success",
+          statusCode: httpStatus.CREATED,
         })
       );
     } catch (error) {
@@ -82,9 +82,9 @@ export default class AuthController {
       if (!user) {
         return res.status(httpStatus.BAD_REQUEST).json(
           sendResponse({
-            message: 'User does not exist',
+            message: "User does not exist",
             statusCode: httpStatus.NOT_FOUND,
-            errors: { error: 'User does not exist' }
+            errors: { error: "User does not exist" },
           })
         );
       }
@@ -98,8 +98,8 @@ export default class AuthController {
         return res.json(
           sendResponse({
             statusCode: httpStatus.BAD_REQUEST,
-            message: 'invalid phone or password',
-            errors: { error: 'invalid phone or password' }
+            message: "invalid phone or password",
+            errors: { error: "invalid phone or password" },
           })
         );
       }
@@ -110,8 +110,8 @@ export default class AuthController {
         sendResponse({
           token,
           payload: user,
-          message: 'success',
-          statusCode: httpStatus.OK
+          message: "success",
+          statusCode: httpStatus.OK,
         })
       );
     } catch (error) {

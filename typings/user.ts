@@ -1,24 +1,24 @@
 export const enum Gender {
-  MALE = 'male',
-  FEMALE = 'female'
+  MALE = "male",
+  FEMALE = "female",
 }
 
 export const enum Role {
-  ADMIN = 'admin',
-  AGENT = 'agent',
-  CUSTOMER = 'customer',
-  SUPER_ADMIN = 'super_admin'
+  ADMIN = "admin",
+  AGENT = "agent",
+  CUSTOMER = "customer",
+  SUPER_ADMIN = "super_admin",
 }
 
 export const enum UserStatus {
-  AWAY = 'away',
-  ONLINE = 'online',
-  OFFLINE = 'offline'
+  AWAY = "away",
+  ONLINE = "online",
+  OFFLINE = "offline",
 }
 
 export const enum Availability {
-  PICK_UP = 'pick_up',
-  DELIVERY = 'delivery'
+  PICK_UP = "pick_up",
+  DELIVERY = "delivery",
 }
 
 export interface AddressInterface {
@@ -35,17 +35,13 @@ export interface UserInterface {
   email: string;
   phone: string;
   image?: string;
-  gender: Gender;
   created_at: Date;
   updated_at: Date;
   password: string;
   last_name: string;
-  status: UserStatus;
   first_name: string;
   is_delete: boolean;
   is_verified: boolean;
-  availability?: Availability;
-  address?: AddressInterface;
 }
 
 export interface UserTokenType {
